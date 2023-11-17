@@ -9,9 +9,26 @@
     padding:0;
     box-sizing: border-box;
 }
+
+/*Element Selector to set the style for the header element*/
+header  {
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    justify-content: space-evenly;
+}
+/*Element Selector to set a style for the a element to float to the left */
+header a {
+    float:left;
+}
+/*ID Selector to set a style for the time id to float to the right */
+#time {
+    float: right;
+}
+
 /*Element Selector to set style for the body element 
 Setting the content in the middle of the screen*/
-body {
+body main{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +37,7 @@ body {
 
 /*Element Selector to set style for the header element
 Setting the content in the middle of the screen*/
-header {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +48,7 @@ header {
 
 /*Element Selector to set style for the p element inside of the header element
 set a margin to create a space between title and the content*/
-header p {
+main p {
     margin-top: 20px;
     width: 55%;
 }
@@ -51,3 +68,4 @@ header p {
     text-shadow: 1px 1px var(--btn_shadow);
     color: white;
 }
+
