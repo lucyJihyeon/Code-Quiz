@@ -1,0 +1,71 @@
+:root   {
+    --btn_color: rgba(168, 38, 168, 0.341);
+    --btn_shadow: rgb(99, 97, 97);
+}
+
+/*Universal Selector to set the general style*/
+*   {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*Element Selector to set the style for the header element*/
+header  {
+    text-decoration: none;
+    margin:0;
+    padding:0;
+    justify-content: space-evenly;
+}
+/*Element Selector to set a style for the a element to float to the left */
+header a {
+    float:left;
+}
+/*ID Selector to set a style for the time id to float to the right */
+#time {
+    float: right;
+}
+
+/*Element Selector to set style for the body element 
+Setting the content in the middle of the screen*/
+body main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*Element Selector to set style for the header element
+Setting the content in the middle of the screen*/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+/*Element Selector to set style for the p element inside of the header element
+set a margin to create a space between title and the content*/
+main p {
+    margin-top: 20px;
+    width: 55%;
+}
+/*Class Selector to set style for the button class */
+.button     {
+    border: solid 2px black;
+    border-radius: 9px;
+    margin-top: 20px;
+    padding: 8px;
+    background-color: var(--btn_color);
+    text-shadow: 1px 1px white;
+    box-shadow: 1px 1px var(--btn_shadow);
+}
+/*Active pseudo element to set style when a botton is being pressed down*/
+.button:active{
+    box-shadow: none;
+    text-shadow: 1px 1px var(--btn_shadow);
+    color: white;
+}
+
