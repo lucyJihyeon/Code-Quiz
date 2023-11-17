@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
   <body>
-    <header>
+    <header class="fixed"> 
       <a href="#highscore">View HighScores</a>
-      <p id ="time">Time:</p>
+      <p id="time">Time:</p>
     </header>
-    
 
-    <main>
+    <figure data-state="visible" class="paragraph">
       <h1>Coding Quiz Challenge</h1>
       <p>
         Try to answer the following code-related questions within the time
@@ -21,10 +20,10 @@
         score/time by ten seconds!
       </p>
       <button id="start" class="button">Start Quiz</button>
+    </figure>
 
+    
 
-
-    </main>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
