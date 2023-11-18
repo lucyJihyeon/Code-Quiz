@@ -1,11 +1,13 @@
 
 
-start = document.getElementById("start");
-paragraph = document.querySelector(".paragraph");
-second = document.querySelector(".second_question");
-secondTitle = document.querySelector("#sc_title");
-scOption = ["numbers and string", "other arrays" , "booleans", "all of the above"];
-var scQuestion = [];
+var start = document.getElementById("start");
+var paragraph = document.querySelector(".paragraph");
+var secondTitle = document.querySelector("#sc_title");
+var scOption = ["1. numbers and string", "2. other arrays" , "3. booleans", "4. all of the above"];
+var timeEl = document.getElementById("time");
+var rightanswers = ["4. all of the above"];
+var scAnswer = [];
+var timeleft = 60;
 
 
 
@@ -17,7 +19,7 @@ start.addEventListener("click", function()  {
     //second.setAttribute("data-state", "visible");
     var scTest = document.createElement("section");
     scTest.setAttribute("id", "second-test");
-    scTest.setAttribute("style", "display: flex; flex-direction: column; text-align: center");
+    scTest.setAttribute("style", "display: flex; flex-direction: column;");
     var scTitle = document.createElement("h1");
     scTitle.textContent = "Array in JavaScript can be used to store";
     var ul = document.createElement("ul");
@@ -29,17 +31,50 @@ start.addEventListener("click", function()  {
         ul.appendChild(li);
         li.innerHTML = li.innerHTML + scOption[i];
         li.setAttribute("style", " width: fit-content");
+        scAnswer.push(li.innerHTML);
     }
-
-    
-    
+    console.log(scAnswer);
+    setTime();
+    rightAnswer();
    }
 })
-/*
-<figure class="second_question" data-state="hidden">
-      <h1 id="sc_title"></h1>
-      <ol id="sc_option"></ol>
-    </figure>
 
-secondTitle.textContent =" Array in JavaScript can be used to store";
-*/
+function setTime () {
+    var timerInterval = setInterval(function()  {
+        if (timeleft > 0)   {
+            timeleft--;
+            timeEl.textContent = "Time: " + timeleft;
+        }
+        if(timeleft === 0)  {
+            clearInterval(timerInterval);
+            sendAlldone();
+        }
+
+    }, 1000);
+
+}
+
+function sendAlldone()  {
+    timeEl.textContent = " ";
+}
+
+function rightAnswer() {
+    var liElements = document.querySelectorAll("#second-test ul li");
+    for (var i = 0; i < liElements.length; i++) {
+        liElements[i].addEventListener("click", function(event) {
+            var selectedAnswer = event.target.innerHTML;
+            if (rightanswers.includes(selectedAnswer)) {
+                var right = document.createElement("h4");
+                right.textContent = "Correct!";
+                right.setAttribute("style", "color: grey");
+                document.body.appendChild(right);
+            } else {
+                var right = document.createElement("h4");
+                right.textContent = "Wrong! -10s";
+                timeleft -= 10;
+                right.setAttribute("style", "color: grey");
+                document.body.appendChild(right);
+            }
+        });
+    }
+}
