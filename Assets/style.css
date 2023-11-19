@@ -103,3 +103,10 @@ section {
     align-items: center;
     text-align: center;
 }
+
+.initial    {
+    display: none;
+}
+label   {
+    display: none;
+}
