@@ -46,7 +46,7 @@ function startQuiz() {
 }
 
 function setTime() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
       if (timeleft > 0) {
         timeleft--;
         timeEl.textContent = "Time: " + timeleft;
