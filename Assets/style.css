@@ -30,7 +30,7 @@ header a {
 }
 
 /*Element Selector to set style for the body element 
-Setting the content in the middle of the screen*/
+Setting the content in the middle of the scre*/
 body  {
     display:flex;
     flex-direction: column;
@@ -78,11 +78,17 @@ body figure p {
     text-shadow: 1px 1px var(--btn_shadow);
     color: white;
 }
+#question   {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 ul {
-    
     list-style: none;
     align-items: center;
+    justify-content: center;
 }
 li {
     background-color: var(--btn_color);
@@ -90,6 +96,7 @@ li {
     padding: 5px 15px;
     border-radius: 8px;
     box-shadow: 2px 2px var(--btn_shadow);
+    
 }
 
 li:active   {
@@ -100,6 +107,7 @@ li:active   {
 
 section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
 }
@@ -109,4 +117,10 @@ section {
 }
 label   {
     display: none;
+}
+
+
+
+#title {
+    display:flex;
 }
