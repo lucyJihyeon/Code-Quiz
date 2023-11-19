@@ -46,7 +46,7 @@ function startQuiz() {
 }
 
 function setTime() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
       if (timeleft > 0) {
         timeleft--;
         timeEl.textContent = "Time: " + timeleft;
@@ -304,6 +304,7 @@ function rightAnswer7() {
   }
 }
 function sendAlldone() {
+  clearInterval(timerInterval);
   var message = document.querySelector("#title");
   message.textContent = "All Done!";
   var pEl = document.createElement("p");
@@ -315,7 +316,6 @@ function sendAlldone() {
 
   document.body.appendChild(pEl);
   localStorage.setItem("score", 40 + timeleft);
-  clearInterval(timerInterval);
 }
 
 function sendLose() {
