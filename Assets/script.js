@@ -329,12 +329,36 @@ function sendAlldone() {
   finalScore.textContent = "Your final score is " + (40 + timeleft);
   finalScore.setAttribute("id", "final_score");
   pEl.appendChild(finalScore);
-  pEl.setAttribute("style", "display: block");
+  pEl.setAttribute("style", "display: block; margin-top: 15px");
 
   document.body.appendChild(pEl);
   localStorage.setItem("score", 40 + timeleft);
   clearInterval(timerInterval);
+  var label = document.querySelector("label");
+  pEl.appendChild(label);
+  label.setAttribute("style", "display: inline-flex");
+  var initial = document.querySelectorAll(".initial")
+  for (var i = 0; i < initial.length; i++){
+    initial[i].setAttribute("style", "display: inline-flex; margin-left: 5px");
+    pEl.appendChild(initial[i]);
+  }
+  scoresubmit();
+  
 }
+
+function scoresubmit() {
+    var submit = document.querySelector("#submit_button");
+    submit.addEventListener("click", function() {
+        var userInitials = document.querySelector("#user_initials").value
+        localStorage.setItem("user_initials",userInitials);
+        console.log(localStorage.getItem("user_initials"));
+        console.log(localStorage.getItem("score"));
+
+    })
+}
+
+
+
 
 function sendLose() {
   quizOver = true;  
