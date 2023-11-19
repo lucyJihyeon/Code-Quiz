@@ -7,57 +7,60 @@ var rightanswers = " ";
 var answer = [];
 var timeleft = 60;
 var timerInterval;
-
+var quizOver = false;
 
 startQuiz();
 function startQuiz() {
-  start.addEventListener("click", function () {
-    var state = paragraph.getAttribute("data-state");
-    if (state === "visible") {
-      paragraph.setAttribute("data-state", "hidden");
-      paragraph.setAttribute("style", "display: none");
-      var section = document.createElement("section");
-      section.setAttribute("id", "question");
-      section.setAttribute("style", "display: flex; flex-direction: column;");
-      document.body.appendChild(section);
-      var title = document.createElement("h1");
-      title.textContent = "Array in JavaScript can be used to store";
-      title.setAttribute("id", "title");
-      var ul = document.createElement("ul");
-      section.appendChild(title);
-      section.appendChild(ul);
-      option =[
-      "1. numbers and string",
-      "2. other arrays",
-      "3. booleans",
-      "4. all of the above",];
-      for (var i = 0; i < option.length; i++) {
-        var li = document.createElement("li");
-        ul.appendChild(li);
-        li.innerHTML = li.innerHTML + option[i];
-        li.setAttribute("style", " width: fit-content");
-        answer.push(li.innerHTML);
+  if (!quizOver) {
+    start.addEventListener("click", function () {
+      var state = paragraph.getAttribute("data-state");
+      if (state === "visible") {
+        paragraph.setAttribute("data-state", "hidden");
+        paragraph.setAttribute("style", "display: none");
+        var section = document.createElement("section");
+        section.setAttribute("id", "question");
+        section.setAttribute("style", "display: flex; flex-direction: column;");
+        document.body.appendChild(section);
+        var title = document.createElement("h1");
+        title.textContent = "Array in JavaScript can be used to store";
+        title.setAttribute("id", "title");
+        var ul = document.createElement("ul");
+        section.appendChild(title);
+        section.appendChild(ul);
+        option = [
+          "1. numbers and string",
+          "2. other arrays",
+          "3. booleans",
+          "4. all of the above",
+        ];
+        for (var i = 0; i < option.length; i++) {
+          var li = document.createElement("li");
+          ul.appendChild(li);
+          li.innerHTML = li.innerHTML + option[i];
+          li.setAttribute("style", " width: fit-content");
+          answer.push(li.innerHTML);
+        }
+        rightanswers = "4. all of the above";
+        setTime();
+        rightAnswer();
       }
-      rightanswers = "4. all of the above";
-      setTime();
-      rightAnswer();
-    }
-  });
+    });
+  }
 }
 
 function setTime() {
-    timerInterval = setInterval(function () {
-      if (timeleft > 0) {
-        timeleft--;
-        timeEl.textContent = "Time: " + timeleft;
-      }
-      if (timeleft <= 0) {
-        clearInterval(timerInterval);
-        sendLose();
-      }
-    }, 1000);
-  }
-  
+  timerInterval = setInterval(function () {
+    if (timeleft > 0) {
+      timeleft--;
+      timeEl.textContent = "Time: " + timeleft;
+    }
+    if (timeleft <= 0) {
+      quizOver = true;
+      clearInterval(timerInterval);
+      sendLose();
+    }
+  }, 1000);
+}
 
 function rightAnswer() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -82,6 +85,7 @@ function rightAnswer() {
   }
 }
 function secondQuestion() {
+  if (!quizOver) {
   var option = [
     "1. adding new items to the end of an array",
     "2. removing the last item of an array",
@@ -100,8 +104,10 @@ function secondQuestion() {
 
   rightAnswer2();
 }
+}
 
 function rightAnswer2() {
+  if (!quizOver) {
   var liElements = document.querySelectorAll("#question ul li");
   for (var i = 0; i < liElements.length; i++) {
     liElements[i].addEventListener("click", function (event) {
@@ -122,8 +128,10 @@ function rightAnswer2() {
     });
   }
 }
+}
 
 function thirdQuestion() {
+  if (!quizOver) {
   var option = ["1. var", "2. let", "3. Both 1 and 2", "4. none of the above"];
   var thirdTitle = document.querySelector("#title");
   var thirdli = document.querySelectorAll("li");
@@ -137,6 +145,7 @@ function thirdQuestion() {
   rightanswers = "3. Both 1 and 2";
 
   rightAnswer3();
+}
 }
 
 function rightAnswer3() {
@@ -161,20 +170,22 @@ function rightAnswer3() {
   }
 }
 function fourthQuestion() {
-  var option = [
-    "1. function: myFunction()",
-    "2. function= myFunction()",
-    "3. function myFunction()",
-    "4. myFunction(): function",
-  ];
-  var fourthTitle = document.querySelector("#title");
-  var fourthli = document.querySelectorAll("li");
-  fourthTitle.textContent = "How do you create a function?";
-  for (var i = 0; i < fourthli.length; i++) {
-    fourthli[i].textContent = option[i];
+  if (!quizOver) {
+    var option = [
+      "1. function: myFunction()",
+      "2. function= myFunction()",
+      "3. function myFunction()",
+      "4. myFunction(): function",
+    ];
+    var fourthTitle = document.querySelector("#title");
+    var fourthli = document.querySelectorAll("li");
+    fourthTitle.textContent = "How do you create a function?";
+    for (var i = 0; i < fourthli.length; i++) {
+      fourthli[i].textContent = option[i];
+    }
+    rightanswers = "3. function myFunction()";
+    rightAnswer4();
   }
-  rightanswers = "3. function myFunction()";
-  rightAnswer4();
 }
 
 function rightAnswer4() {
@@ -197,6 +208,7 @@ function rightAnswer4() {
   }
 }
 function fifthQuestion() {
+  if (!quizOver) {
   var option = [
     "1. JSON.stringify()",
     "2. JSON.parse()",
@@ -212,6 +224,7 @@ function fifthQuestion() {
   }
   rightanswers = "1. JSON.stringify()";
   rightAnswer5();
+}
 }
 function rightAnswer5() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -233,6 +246,7 @@ function rightAnswer5() {
   }
 }
 function sixthQuestion() {
+  if (!quizOver) {
   var option = [
     "1. the second item of the array",
     "2. the first two items of the array",
@@ -247,6 +261,7 @@ function sixthQuestion() {
   }
   rightanswers = "3. the third item of the array";
   rightAnswer6();
+}
 }
 function rightAnswer6() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -268,6 +283,7 @@ function rightAnswer6() {
   }
 }
 function seventhQuestion() {
+  if (!quizOver) {
   var option = [
     "1. Dynamic Object Model",
     "2. Document Object Model",
@@ -282,6 +298,7 @@ function seventhQuestion() {
   }
   rightanswers = "2. Document Object Model";
   rightAnswer7();
+}
 }
 function rightAnswer7() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -304,6 +321,7 @@ function rightAnswer7() {
   }
 }
 function sendAlldone() {
+  quizOver = true;
   var message = document.querySelector("#title");
   message.textContent = "All Done!";
   var pEl = document.createElement("p");
@@ -319,11 +337,13 @@ function sendAlldone() {
 }
 
 function sendLose() {
+  quizOver = true;  
   clearQuestion();
   timeleft = 0;
   var message = document.querySelector("#title");
   message.textContent =
     "Time's up! Try again next time. Hit the Restart botton to restart.";
+  
 }
 
 function clearQuestion() {
