@@ -10,6 +10,7 @@ var timeleft = 60;
 var timerInterval;
 var quizOver = false;
 
+
 startQuiz();
 function startQuiz() {
   if (!quizOver) {
@@ -38,7 +39,7 @@ function startQuiz() {
       }
     });
   }
-  }
+}
 
 function setTime() {
   timerInterval = setInterval(function () {
@@ -54,26 +55,25 @@ function setTime() {
   }, 1000);
 }
 
-function answerClickHandler(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        secondQuestion();
-      }, 1000);
-    };
+function answerClickHandler(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    secondQuestion();
+  }, 1000);
+}
 
 function rightAnswer() {
-    
   var liElements = document.querySelectorAll("#question ul li");
   liElements.forEach(function (li) {
     li.addEventListener("click", answerClickHandler);
@@ -99,32 +99,32 @@ function secondQuestion() {
     rightAnswer2();
   }
 }
-function answerClickHandler2(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        thirdQuestion();
-      }, 1000);
-    };
+function answerClickHandler2(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    thirdQuestion();
+  }, 1000);
+}
 
 function rightAnswer2() {
   if (!quizOver) {
     var liElements = document.querySelectorAll("#question ul li");
     liElements.forEach(function (li) {
-        li.removeEventListener("click", answerClickHandler);
-        li.addEventListener("click", answerClickHandler2);
-      });
-}
+      li.removeEventListener("click", answerClickHandler);
+      li.addEventListener("click", answerClickHandler2);
+    });
+  }
 }
 
 function thirdQuestion() {
@@ -149,23 +149,23 @@ function thirdQuestion() {
     rightAnswer3();
   }
 }
-function answerClickHandler3(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        fourthQuestion();
-      }, 1000);
-    };
+function answerClickHandler3(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    fourthQuestion();
+  }, 1000);
+}
 
 function rightAnswer3() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -192,23 +192,23 @@ function fourthQuestion() {
     rightAnswer4();
   }
 }
-function answerClickHandler4(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        fifthQuestion();
-      }, 1000);
-    };
+function answerClickHandler4(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    fifthQuestion();
+  }, 1000);
+}
 
 function rightAnswer4() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -236,23 +236,23 @@ function fifthQuestion() {
     rightAnswer5();
   }
 }
-function answerClickHandler5(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        sixthQuestion();
-      }, 1000);
-    };
+function answerClickHandler5(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    sixthQuestion();
+  }, 1000);
+}
 
 function rightAnswer5() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -279,23 +279,23 @@ function sixthQuestion() {
     rightAnswer6();
   }
 }
-function answerClickHandler6(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        seventhQuestion();
-      }, 1000);
-    };
+function answerClickHandler6(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    seventhQuestion();
+  }, 1000);
+}
 
 function rightAnswer6() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -322,23 +322,23 @@ function seventhQuestion() {
     rightAnswer7();
   }
 }
-function answerClickHandler7(event)   {
-    var selectedAnswer = event.target.innerHTML;
-    if (rightanswers.includes(selectedAnswer)) {
-        var right = document.createElement("h4");
-        right.textContent = "Correct!";
-      } else {
-        var right = document.createElement("h4");
-        right.textContent = "Wrong! -10s";
-        timeleft -= 10;
-      }
-      right.setAttribute("style", "color: grey");
-      document.body.appendChild(right);
-      setTimeout(function () {
-        right.setAttribute("style", "display: none");
-        sendAlldone();
-      }, 1000);
-    };
+function answerClickHandler7(event) {
+  var selectedAnswer = event.target.innerHTML;
+  if (rightanswers.includes(selectedAnswer)) {
+    var right = document.createElement("h4");
+    right.textContent = "Correct!";
+  } else {
+    var right = document.createElement("h4");
+    right.textContent = "Wrong! -10s";
+    timeleft -= 10;
+  }
+  right.setAttribute("style", "color: grey");
+  document.body.appendChild(right);
+  setTimeout(function () {
+    right.setAttribute("style", "display: none");
+    sendAlldone();
+  }, 1000);
+}
 
 function rightAnswer7() {
   var liElements = document.querySelectorAll("#question ul li");
@@ -346,12 +346,12 @@ function rightAnswer7() {
     li.removeEventListener("click", answerClickHandler6);
     li.addEventListener("click", answerClickHandler7);
   });
-  
 }
 
 function sendAlldone() {
   quizOver = true;
   clearQuestion();
+  clearInterval(timerInterval);
   var message = document.querySelector("#title");
   message.textContent = "All Done!";
   var pEl = document.createElement("p");
@@ -360,30 +360,93 @@ function sendAlldone() {
   finalScore.setAttribute("id", "final_score");
   pEl.appendChild(finalScore);
   pEl.setAttribute("style", "display: block; margin-top: 15px");
-
   document.body.appendChild(pEl);
   localStorage.setItem("score", 40 + timeleft);
-  clearInterval(timerInterval);
-  var label = document.querySelector("label");
-  pEl.appendChild(label);
-  label.setAttribute("style", "display: inline-flex");
   var initial = document.querySelectorAll(".initial");
   for (var i = 0; i < initial.length; i++) {
     initial[i].setAttribute("style", "display: inline-flex; margin-left: 5px");
     pEl.appendChild(initial[i]);
   }
+  //var label = document.querySelector("label");
+  //label.setAttribute("style", "display: inline-flex");
+  //pEl.appendChild(label);
   scoresubmit();
 }
 
 function scoresubmit() {
   var submit = document.querySelector("#submit_button");
-  submit.addEventListener("click", function () {
+  submit.addEventListener("click", function (event) {
+    event.preventDefault();
     var userInitials = document.querySelector("#user_initials").value;
+    var userscore = localStorage.getItem("score");
+    var userInfos = JSON.parse(localStorage.getItem("userInfos")) || [];
+
+    userInfos.push({
+        initials: userInitials,
+        score: userscore
+      });
+    localStorage.setItem("userInfos", JSON.stringify(userInfos));
+/*
     localStorage.setItem("user_initials", userInitials);
-    console.log(localStorage.getItem("user_initials"));
-    console.log(localStorage.getItem("score"));
+     var userInfos = {
+      initials: userInitials,
+      score: userscore
+    };
+    
+    localStorage.setItem("userInfo", JSON.stringify(userInfos));
+    console.log(localStorage.getItem("userInfo"));
+    */
+    renderUserInfo();
+
+
+
+
+
   });
 }
+function renderUserInfo() {
+  clearQuestion();
+  var title = document.getElementById("title");
+  title.textContent = "HighScores";
+  var initialsEl = document.querySelectorAll(".initial");
+  for (var i = 0; i < initialsEl.length; i++) {
+    initialsEl[i].setAttribute("style", "display:none");
+  }
+  var fscore = document.getElementById("final_score");
+  fscore.textContent = "";
+  var ul = document.querySelector("#score-list");
+  var userInfos = JSON.parse(localStorage.getItem("userInfos")) || [];
+  console.log(userInfos);
+  userInfos.forEach(function(userInfo) {
+    var li = document.createElement("li");
+    li.textContent = "Initials: " + userInfo.initials + ", Score: " + userInfo.score;
+    ul.appendChild(li);
+  });
+
+  /*
+  if (userInfo !== null) {
+    var li = document.createElement("li");
+    li.textContent = "Initials : " + userInfo.initials + ", Score: " + userInfo.score;
+    ul.appendChild(li);
+  } console.log(ul)*/
+
+}
+
+function init() {
+  var storedUser = JSON.parse(localStorage.getItem("userInfo"));
+
+  if (storedUser !== null) {
+    userInfos = storedUser;
+  }
+}
+
+/*
+    if (userInfo != null)   {
+        var ul = document.createElement("ul");
+        var li = document.createElement("li");
+        document.getElementById('saved-initials').innerHTML = userInfo.initials;
+        document.getElementById('saved-score').innerHTML = userInfo.score;
+    }*/
 
 function sendLose() {
   quizOver = true;
@@ -419,12 +482,12 @@ function clearQuestion() {
   timeEl.textContent = " ";
   var ul = document.querySelector("#question ul");
   ul.innerHTML = ""; // Clear the list items
-
   var title = document.getElementById("title");
-  title.textContent ="";
+  title.textContent = "";
 
   var right = document.querySelectorAll("h4");
-  right.forEach(function (element)  {
+  right.forEach(function (element) {
     element.textContent = "";
   });
 }
+init();
