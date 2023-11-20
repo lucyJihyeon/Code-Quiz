@@ -9,8 +9,15 @@ var answer = [];
 var timeleft = 60;
 var timerInterval;
 var quizOver = false;
+var view = document.querySelector("a")
+view.addEventListener("click", function(event)   {
+    event.preventDefault();
+    renderUserInfo();
+});
 
 startQuiz();
+
+
 function startQuiz() {
   if (!quizOver) {
     start.addEventListener("click", function () {
@@ -491,7 +498,7 @@ function init() {
   var storedUser = JSON.parse(localStorage.getItem("userInfo"));
 
   if (storedUser !== null) {
-    userInfos = [];
+    userInfos = storedUser;
   }
 }
 
@@ -515,8 +522,6 @@ function sendLose() {
     }
     message.textContent = "";
     restart.setAttribute("style", "display:none");
-    var score = document.getElementById("final_score");
-    score = 0;
     timeleft = 60;
     clearInterval(timerInterval);
     answer = [];
