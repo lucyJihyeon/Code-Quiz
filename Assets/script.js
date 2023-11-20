@@ -370,11 +370,7 @@ function sendAlldone() {
   scoresubmit();
 }
 
-function scoresubmit() {
-  var score = document.getElementById("final_score");
-  score.textContent = "";
-  var submit = document.querySelector("#submit_button");
-  submit.addEventListener("click", function (event) {
+function scoresubmitHandler(event)  {
     event.preventDefault();
     var userInitials = document.querySelector("#user_initials").value;
     var userscore = localStorage.getItem("score");
@@ -382,12 +378,20 @@ function scoresubmit() {
 
     userInfos.push({
       initials: userInitials,
-      score: userscore,
+      score: userscore
     });
     localStorage.setItem("userInfos", JSON.stringify(userInfos));
 
     renderUserInfo();
-  });
+}
+
+function scoresubmit() {
+  var score = document.getElementById("final_score");
+  score.textContent = "";
+  var submit = document.querySelector("#submit_button");
+  submit.removeEventListener("click", scoresubmitHandler);
+  submit.addEventListener("click", scoresubmitHandler);
+  
 }
 function renderUserInfo() {
   clearQuestion();
@@ -397,8 +401,10 @@ function renderUserInfo() {
   for (var i = 0; i < initialsEl.length; i++) {
     initialsEl[i].setAttribute("style", "display:none");
   }
-  var fscore = document.getElementById("final_score");
-  fscore.textContent = " ";
+  var fscore = document.querySelectorAll("#final_score");
+  for ( i = 0; i < fscore.length; i++)  {
+  fscore[i].textContent = " ";
+  }
   var ul = document.querySelector("#score-list");
   var userInfos = JSON.parse(localStorage.getItem("userInfos")) || [];
 
@@ -426,7 +432,6 @@ function renderUserInfo() {
   place.appendChild(goBack);
   place.appendChild(clearHighscores);
   place.setAttribute("style", "display: inline-flex");
-
   buttonHandler();
 }
 
@@ -460,15 +465,23 @@ function buttonHandler() {
     startQuiz();
   });
   clearHighscores.addEventListener("click", function()  {
-    var userInfos = JSON.parse(localStorage.getItem("userInfos")) || [];
-    userInfos = [];
+    var userInfos = [];
     localStorage.setItem("userInfos", JSON.stringify(userInfos));
     var li = document.querySelectorAll(".user_info");
     for (var i = 0; i < li.length; i++) {
+        li[i].innerHTML="";
         li[i].setAttribute("style","display: none");
     }
+    var ul = document.getElementById("score-list");
+    ul.innerHTML ="";
+    var finalScore = document.getElementById("final_score");
+    finalScore.textContent = ""; 
+    var userscore = "";
+    userscore = localStorage.getItem("score");
     
+
   })
+
 
 
 
@@ -478,7 +491,7 @@ function init() {
   var storedUser = JSON.parse(localStorage.getItem("userInfo"));
 
   if (storedUser !== null) {
-    userInfos = storedUser;
+    userInfos = [];
   }
 }
 
