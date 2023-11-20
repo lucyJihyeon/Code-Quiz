@@ -85,7 +85,7 @@ function secondQuestion() {
       "1. adding new items to the end of an array",
       "2. removing the last item of an array",
       "3. moving the last item of an array and create a new array with it",
-      "4. moving the first iten of an array and create a new array with it",
+      "4. moving the first ite of an array and create a new array with it",
     ];
     var secondTitle = document.querySelector("#title");
     var secondli = document.querySelectorAll("li");
@@ -367,9 +367,7 @@ function sendAlldone() {
     initial[i].setAttribute("style", "display: inline-flex; margin-left: 5px");
     pEl.appendChild(initial[i]);
   }
-  //var label = document.querySelector("label");
-  //label.setAttribute("style", "display: inline-flex");
-  //pEl.appendChild(label);
+  
   scoresubmit();
 }
 
@@ -386,21 +384,8 @@ function scoresubmit() {
         score: userscore
       });
     localStorage.setItem("userInfos", JSON.stringify(userInfos));
-/*
-    localStorage.setItem("user_initials", userInitials);
-     var userInfos = {
-      initials: userInitials,
-      score: userscore
-    };
-    
-    localStorage.setItem("userInfo", JSON.stringify(userInfos));
-    console.log(localStorage.getItem("userInfo"));
-    */
+
     renderUserInfo();
-
-
-
-
 
   });
 }
@@ -416,20 +401,30 @@ function renderUserInfo() {
   fscore.textContent = "";
   var ul = document.querySelector("#score-list");
   var userInfos = JSON.parse(localStorage.getItem("userInfos")) || [];
-  console.log(userInfos);
-  userInfos.forEach(function(userInfo) {
-    var li = document.createElement("li");
-    li.textContent = "Initials: " + userInfo.initials + ", Score: " + userInfo.score;
-    ul.appendChild(li);
+  
+  userInfos.sort(function(a, b) {
+    return b.score - a.score;
   });
-
-  /*
-  if (userInfo !== null) {
+  
+  for (var i = 0; i < userInfos.length; i++) {
+    var userInfo = userInfos[i];
     var li = document.createElement("li");
-    li.textContent = "Initials : " + userInfo.initials + ", Score: " + userInfo.score;
+    li.textContent = i + 1 + ". Initials: " + userInfo.initials + ", Score: " + userInfo.score;
+    li.setAttribute("class", "user_info");
     ul.appendChild(li);
-  } console.log(ul)*/
+  }
+    var goBack = document.createElement("button");
+    goBack.textContent = "Go Back";
+    goBack.setAttribute("class", "button")
+    var clearHighscores = document.createElement("button");
+    clearHighscores.textContent = "Clear Highscores";
+    clearHighscores.setAttribute("class", "button");
+    var place = document.getElementById("score-button");
+    place.appendChild(goBack);
+    place.appendChild(clearHighscores);
+    place.setAttribute("style", "display: inline-flex");
 
+    clearbutton();
 }
 
 function init() {
@@ -440,13 +435,6 @@ function init() {
   }
 }
 
-/*
-    if (userInfo != null)   {
-        var ul = document.createElement("ul");
-        var li = document.createElement("li");
-        document.getElementById('saved-initials').innerHTML = userInfo.initials;
-        document.getElementById('saved-score').innerHTML = userInfo.score;
-    }*/
 
 function sendLose() {
   quizOver = true;
