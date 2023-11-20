@@ -1,7 +1,8 @@
 :root   {
     --btn_color: rgba(168, 38, 168, 0.341);
     --btn_shadow: rgb(99, 97, 97);
-    
+    --user_box: rgb(189, 165, 205);
+    --user_color: rgb(241, 248, 255);
 }
 
 /*Universal Selector to set the general style*/
@@ -66,7 +67,7 @@ body figure p {
 .button     {
     border: solid 2px black;
     border-radius: 9px;
-    margin-top: 20px;
+    margin: 20px;
     padding: 8px;
     background-color: var(--btn_color);
     text-shadow: 1px 1px white;
@@ -125,3 +126,10 @@ label   {
     display:flex;
 }
 
+.user_info  {
+    background-color: var(--user_box);
+    box-shadow: 2px 2px black;
+    color: var(--user_color);
+    text-shadow: 2px 1px black;
+    font-size: 20px;
+}
