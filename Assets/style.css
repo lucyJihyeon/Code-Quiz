@@ -1,3 +1,4 @@
+/*Create custom styles*/
 :root   {
     --btn_color: rgba(168, 38, 168, 0.341);
     --btn_shadow: rgb(99, 97, 97);
@@ -12,7 +13,7 @@
     box-sizing: border-box;
 }
 
-/*Element Selector to set the style for the header element*/
+/*Class Selector to set style for the .fixed class to fix them on top of the page*/
 .fixed {
     position: fixed;
     top: 0;
@@ -39,7 +40,9 @@ body  {
     align-items: center;
     min-height: 100vh;
 }
+/*Element Selector to set style for the h4 element in the body*/
 body h4 {
+    /*shifts the content to sit right under the li elements*/
     margin-left: -330px;
     margin-top: 20px;
     text-decoration: underline;
@@ -57,7 +60,7 @@ body figure {
     
 }
 
-/*Element Selector to set style for the p element inside of the header element
+/*Element Selector to set style for the p element inside of the figure element
 set a margin to create a space between title and the content*/
 body figure p {
     margin-top: 20px;
@@ -79,17 +82,19 @@ body figure p {
     text-shadow: 1px 1px var(--btn_shadow);
     color: white;
 }
+/*ID Selector for the quetsion id to set style*/
 #question   {
     display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+/*Element Selector to clear style for the children elements*/
 ul {
     list-style: none;
    
 }
+/*Element Selector to set styles for the li element*/
 li {
     background-color: var(--btn_color);
     margin-top: 10px;
@@ -98,34 +103,35 @@ li {
     box-shadow: 2px 2px var(--btn_shadow);
     
 }
-
+/*Active pseudo element to set styles when the li element is being pressed down*/
 li:active   {
     box-shadow: none;
     text-shadow: 1px 1px var(--btn_shadow);
     color: white;
 }
 
+/*Element Selector to set style for the section element
+set the children elements in the middle*/
 section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    /*children elements forms at the start */
     justify-content: flex-start;
 }
 
+/*Class selector for the initial class 
+hide the initial class elements*/
 .initial    {
     display: none;
 }
-label   {
-    display: none;
-}
-
-
-
+/*ID Selector to set style for the title id*/
 #title {
     display:flex;
 }
 
+/*Class Selector to set styles for the user_info class*/
 .user_info  {
     background-color: var(--user_box);
     box-shadow: 2px 2px black;
