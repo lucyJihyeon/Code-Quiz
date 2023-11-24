@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
   <body>
+    <!--header element-->
     <header class="fixed"> 
+      <!--make the View HighScores clickable by adding a tag-->
       <a href="">View HighScores</a>
       <p id="time">Time:</p>
     </header>
-
+    <!--first default page-->
     <figure data-state="visible" class="paragraph">
       <h1>Coding Quiz Challenge</h1>
       <p>
@@ -19,16 +21,17 @@
         limit. Keep in mind that incorrected answers will penalize your
         score/time by ten seconds!
       </p>
+      <!--start button to start the quiz-->
       <button id="start" class="button">Start Quiz</button>
     </figure>
+    <!--section element where the question and the multi-choices will be displayed-->
     <secion id ="question">
         <h1 id="title"></h1>
         <ul id = "score-button">
-            
         </ul>
     </secion>
 
-
+    
     <label class="initial">Enter Initials: </label>
     <input type ="text" id = "user_initials"class ="initial" placeholder="Enter your initials here.."/>
     <button type ="submit" id="submit_button" class ="initial button">Submit</button>
